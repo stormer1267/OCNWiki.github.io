@@ -1,0 +1,141 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>OBS Guide - Guides - OCNWiki</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index">Unofficial Overcast Network Wiki</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/index"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="/en/wiki/main"><i class="fa fa-book"></i> Wiki</a></li>
+            <li class="active"><a href="/en/guides/main"><i class="fa fa-file"></i> Guides</a></li>
+            <li><a href="/en/community/main"><i class="fa fa-users"></i> Community</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- Content Start -->
+    <div class="container">
+      <div class="jumbotron" style="background-color:#450f43">
+        <h1 style="color:#FFFFFF">OBS Guide</h1>
+      </div>
+      <section>
+        <div class="row">
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="/en/guides/mumble">Mumble Guide</a>
+              </li>
+              <li class="active">
+                <a href="/en/guides/obs">OBS Guide</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="page-header">
+                <h2 id="download">Download</h2>
+              </div>
+              <div class="col-md-6">
+                <p>For the start you will need to grab OBS or Open Broadcaster Software from their <a href="https://obsproject.com/">website</a>. When installed you will see a window like this.</p>
+              </div>
+              <div class="col-md-6">
+                <img src="../../assets/img/guides/obs/start.png" class="img-thumbnail">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="page-header">
+                <h2 id="scenes">Scenes</h2>
+              </div>
+              <div class="col-md-6">
+                <p>In order to begin, right click the scenes box, and choose "Add Scene". Enter a name for this scene, it can be anything you want. Once the scene is created, you will need to add a source. Right click in the source box and choose "Add >". Then choose "Game capture". At this point, you will need to open Minecraft. Once in the game capture, dialogue, you will see this. Make sure to have Minecraft selected, all the other settings can be left at default. Hit OK.</p>
+              </div>
+              <div class="col-md-6">
+                <img src="../../assets/img/guides/obs/gamecapture.png" class="img-thumbnail">
+              </div>
+            </div>
+            <div class="row">
+              <div class="page-header">
+                <h2 id="settings">Settings</h2>
+              </div>
+              <div class="col-md-12">
+                <p>Now we need to configure the video settings. Hit the "Settings" button to the right of the Sources box. I will provide multiple examples of different configurations for different types of videos. In order to achieve small file sizes, use the following settings:</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="../../assets/img/guides/obs/settings1.png" class="img-thumbnail">
+                  </div>
+                  <div class="col-md-6">
+                    <img src="../../assets/img/guides/obs/settings2.png" class="img-thumbnail">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="../../assets/img/guides/obs/settings3.png" class="img-thumbnail">
+                  </div>
+                  <div class="col-md-6">
+                    <img src="../../assets/img/guides/obs/settings4.png" class="img-thumbnail">
+                  </div>
+                </div>
+                <br>
+                <p>Hit OK, and you're done. Make sure to note the path your video will be recorded to. Now, go to Minecraft, hit F9 (or whatever key you set to start the recording) and hit it again when you wish to stop recording. This is ideal for evidence for report and low file size recording. A 1 minute video will only have a file size of about 2.5 MB, which will also upload to Youtube in a matter of seconds.</p>
+                <p>If you wish to record higher quality videos, simply change the Max Bitrate under the "Encoding" tab to a higher value, such as 2000, 5000, or 10000. Here's a <a href="https://www.youtube.com/watch?v=lqe8twdPRaA">comparison video</a>. Under the "Video" tab, turn the resolution downscale to off or a higher resolution. This will create larger video files, be warned.</p>
+              </div>
+            </div>
+            <br>
+            <p>Taken From: <a href="https://oc.tc/forums/topics/531a511512ca956f8700a54d">How to record with OBS </a> by <a href="https://oc.tc/stats/diamond22">diamond22</a>
+          </div>
+        </div>
+        <br>
+      </section>
+    </div>
+    <!-- Content End -->
+    <div class="container">
+      <hr>
+      <footer>
+        <ul class="nav nav-pills">
+          <div class="btn-group">
+            <div class="dropup">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Language Selection <i class="fa fa-caret-up"></i></button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">English</a></li>
+              </ul>
+            </div>
+          </div>
+          <li class="pull-right"><a href="/en/contributing"><i class="fa fa-gear"></i> Contributing</a></li>
+        </ul>
+      </footer>
+    <br>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
