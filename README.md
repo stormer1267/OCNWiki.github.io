@@ -17,6 +17,7 @@ When creating an issue:
 * Do not re-create an issue you feel unjustly closed. You can comment on the closed one.
 * Do not create disrespectful or inflammatory comments.
 * Please avoid commenting on issues with "+1" or such. Try to give constructive criticism.
+* Content should be grammatically correct and the spelling should be US English, e.g. Color not Colour.
 
 When creating a pull request make sure to follow the above. In the code it self, please make sure that it is properly formatted. Please leave your Minecraft IGN in the pull-request so we can later add you to the contributors page if your pull-request gets accepted.
 
