@@ -1,0 +1,174 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Issue #3 - Overcast /Report - Community - OCNWiki</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index">Unofficial Overcast Network Wiki</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/index"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="/en/wiki/main"><i class="fa fa-book"></i> Wiki</a></li>
+            <li><a href="/en/guides/main"><i class="fa fa-file"></i> Guides</a></li>
+            <li class="active"><a href="/en/community/main"><i class="fa fa-users"></i> Community</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- Content Start -->
+    <div class="container">
+      <div class="jumbotron" style="background-color:#450f43">
+        <h1 style="color:#FFFFFF">Overcast /Report</h1>
+      </div>
+      <section>
+        <div class="row">
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li class="active">
+                <a href="/en/community/overcastreport/main"><i class="fa fa-star-o"></i> Overcast /Report</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-9">
+            <div class="page-header">
+              <h2 id="overcastreport">The Overcast /Report <small>Issue #3, 2015-06-21</small></h2>
+            </div>
+            <ul class="pager">
+              <li class="previous"><a href="/en/community/overcastreport/issue2">← Issue #2</a></li>
+              <li class="next"><a href="/en/community/overcastreport/issue4">Issue #4 →</a></li>
+            </ul>
+            <div class="page-header">
+              <h3 id="asktheseniors">New Forum: Ask the Seniors</h3>
+            </div>
+            <p>Have a question about the network that needs an answer from the people right at the top? Well don't fret, the senior staff have brought back the "Ask the Admins" subforum, now with the addition of the Senior Moderators. The new subforum, <a href="https://oc.tc/forums/557e21685f35b92506006f9e">Ask the Seniors</a>, is just what it sounds like! A place for players to ask questions specifically directed towards the senior staff. There have already been lots of interesting questions, so why not take a look?</p>
+            <div class="page-header">
+              <h3 id="development">Development News</h3>
+            </div>
+            <p>This week, <a href="https://oc.tc/Cubist">Cubist</a> writes about a large project that he has been tackling.</p>
+            <div class="well well-small">
+              <p>What I was working on all week was rewriting a part of our code called Tracker. This code is ultimately responsible for generating death messages, and in order to do that, it has to keep track of all sorts of information about the events leading up to a player's death.</p>
+              <p>For example, when you kill a player by knocking them off a bridge, Tracker is the thing that remembers who hit them and gives you the kill when they hit the ground later. When you get a TNT kill, it's because Tracker remembered which TNT blocks were placed by you, which TNT entities came from those blocks, and which other TNT blocks the explosion activated. It also tracks projectiles, pet mobs (spawned from eggs), fire, lava, dispensers, anvils, and spleefing.</p>
+              <p>And it can track any combination of these things, so you can place a dispenser, that dispenses a skeleton with a flame bow, that shoots some TNT, which destroys a bridge and makes a player fall into lava, which sets them on fire and later burns them to death, and tracker will trace it all the way back to you.</p>
+              <p>The old Tracker code has been around for years now, and has become really messy from features being layered on one at a time. The code has become really hard to work with, and a major source of bugs. When code gets like this, smart developers will do something called "refactoring", which essentially means changing how the code works without changing what it does. Because we now understand exactly what the code needs to do, we can write it much better than we could back when we were feeling out new features one at a time. Software projects that are very large and/or old usually require constant refactoring just to keep them alive.</p>
+              <p>Anyway, as I write this, the new Tracker is going through some final testing, and it may even be deployed by the time you read this. While this was mostly an investment in future development, there are a few improvements that will be immediately visible to players.</p>
+              <p>Death messages are now fully localized, meaning they can be translated into other languages. Monti and the translation team are no doubt waiting to sink their teeth into this. It wasn't possible to translate the messages from the old Tracker, because they were pieced together word by word, as the cause of death was unraveled, and this process was tightly coupled to English grammar rules. The new Tracker assembles messages in a similar way, but instead of an English sentence, it generates a translation key like "death.fall.void.melee.player.weapon". The English translation for that key is "{0} was knocked out of the world by {1}'s {2}". Every possible death message has its own key and is translated independently, and it looks like there will be about 120 of them in total. There are a lot of ways to die on OCN.</p>
+              <p>Another improvement that you might notice is that a player's kills are properly tracked after they switch teams or leave the match. The old Tracker would get confused if you shot an arrow and then left your team before it hit something, or placed some TNT and left before it exploded. The new Tracker handles all that properly. That entire chain reaction I described above can happen long after you leave the server, and it will make no difference. Your name will be in the death message, with the correct team color, and your stats will be updated. This works for monuments as well. You can no longer blow up your own monument by placing TNT and then switching teams. TNT behaves the same no matter what you do after you place it.</p>
+            </div>
+            <div class="page-header">
+              <h3 id="arcademapsprogress">Arcade Maps Progress</h3>
+            </div>
+            <p>As we get closer and closer to the official release of the Arcade, it's important to stay organized, and even more importantly, excited! To help with both of these things, <a href="https://oc.tc/ElectroidFilms">ElectroidFilms</a> has started a <a href="https://oc.tc/forums/topics/557d77da5f35b9d0020091e1">master list of Arcade maps</a> in all stages of development. It will be thrilling to watch this list grow and grow, and even more fun to play the wonderfully creative maps the community will inevitably make.</p>
+            <p>Want to help out with Arcade development and get a sneak preview of some of the gamemodes? Look out for map tests on <code>/server Arcade</code> throughout the coming month. Please be sure to give us feedback during those tests as it will help us improve the Arcade!</p>
+            <div class="page-header">
+              <h3 id="maps">Map News</h3>
+            </div>
+            <p>As well as all the work on arcade maps, there are also a number of other additions to the map repository this week, and two maps which have had their gamemode converted to something different.</p>
+            <ul>
+              <li>
+                <a href="https://oc.tc/maps/milky_way">Milky Way</a>, a 2-life RAGE map by <a href="https://oc.tc/Poseyidon">Poseyidon</a>
+              </li>
+              <li>
+                <a href="https://oc.tc/maps/larnia">Larnia</a>, an A/D CTF map by <a href="https://oc.tc/LArrowHead">LArrowHead</a> and <a href="https://oc.tc/NixaniaXi">NixaniaXi</a>
+              </li>
+              <li>
+                <a href="https://oc.tc/maps/zip">Zip</a>, a TDM scorebox map by <a href="https://oc.tc/BrettOgden">BrettOgden</a> and <a href="https://oc.tc/MySquishyTurtle">MySquishyTurtle</a>
+              </li>
+              <li>
+                <a href="https://oc.tc/maps/mistforge">Mistforge</a>, a 6-hill CP map by <a href="https://oc.tc/Moo_">Moo_</a>
+              </li>
+              <li>
+                <a href="https://oc.tc/maps/anthill">Anthill</a>, a TDM by <a href="https://oc.tc/KasiCrafter">KasiCrafter</a>
+              </li>
+              <li>
+                <a href="https://oc.tc/maps/secluded_caverns">Secluded Caverns</a> has been converted from a TDM to a KotH.
+              </li>
+              <li>
+                <a href="https://oc.tc/maps/fort_beverstone">Fort Beverstone</a> has been converted from a CTW to a CTF.
+              </li>
+            </ul>
+            <div class="page-header">
+              <h3 id="refereeapplications">Referee Applications Closed</h3>
+            </div>
+            <p>June 16th marked the closing of the referee applications. Thank you to everyone that applied! The response was overwhelming, as usual, but expect all replies to be sent out by June 23rd.</p>
+            <div class="page-header">
+              <h3 id="lastlifenews">The Last Life Blitz Tournament Gets Underway</h3>
+            </div>
+            <p>After being postponed a week, the group stages of The Last Life took place yesterday. There were 10 pools of 4 teams, where teams competed against every other team in their pool. As a result of this group stage, 20 teams will go through to next weekend's double elimination portion of the event. Make sure to tune in to find out who will be advancing into the playoffs for the week after. Anything and everything else regarding the event can be found on the <a href="https://oc.tc/forums/topics/557c759167d522c04f0081f9">centralized information thread</a>.</p>
+            <div class="page-header">
+              <h3 id="staff">Staff News</h3>
+            </div>
+            <p>This week saw the promotion of a number of Junior Moderators to the full rank of Moderator. Congratulations to <a href="https://oc.tc/m0ose12321">m0ose12321</a>, <a href="https://oc.tc/igloo1">igloo1</a>, <a href="https://oc.tc/Anthonny">Anthonny</a>, <a href="https://oc.tc/felipu_feliu">felipu_feliu</a>, <a href="https://oc.tc/Diamyx">Diamyx</a>, <a href="https://oc.tc/Rahuul">Rahuul</a>, <a href="https://oc.tc/Santilam">Santilam</a> and <a href="https://oc.tc/PepsiDog">PepsiDog</a>!</p>
+            <p>We also said farewell to a veteran moderator, <a href="https://oc.tc/Zan">Zan</a>, this week. We're grateful for all his hard work on the moderation team. He will however be staying on as an Official.</p>
+            <div class="page-header">
+              <h3 id="flying">Feature: Of Flying and its Democratization</h3>
+            </div>
+            <p>In this article, <a href="https://oc.tc/Tywnis">Tywnis</a> gives his thoughts on the use of the fly kit module in maps.</p>
+            <div class="well well-small">
+              <p>The <strong>Fly <a href="https://docs.oc.tc/modules/kits">kit module</a></strong> has existed for a while now. It takes map design to an interesting new level, yet we see very few maps that use it. Being one of the makers, if not the only one, to have made maps using it, here are a few observations i have regarding its usage.</p>
+              <p>Several things have to be taken in account:</p>
+              <p>First of all, <strong>boundaries</strong>. It may seem a bit negative to start off with what limits the game, but that’s the most important thing: you have to define where you want players to be able to go.</p>
+              <p>Exterior boundaries-wise, I first contemplated the idea of giving a poison kit to players exiting, and heal them back were they to enter the zone again. I failed to make it work in a satisfactory and self-explanatory manner, so i moved on.</p>
+              <p>I then used an XML barrier, denying players the possibility to exit a defined zone. However, this solution results in players glitching or getting stucked into the barrier, hence it is not recommended.</p>
+              <p>The third and best solution is to use hard blocks to confine the game in a box. The block 166 will be helpful here, as it is fully transparent.</p>
+              <p>Within the “box”, limiting player movement translates more through guiding it in new and revolutionary layouts. The Y axis can now be developed much more.</p>
+              <p>Second of all, <strong>modes</strong>.</p>
+              <p>Players move fast - in these conditions regular pvp quickly becomes difficult. Because of the speed, and because flying allows for a whole new set of moves and dodgings, including controlled falls, it seems important to simplify the killing process. The <strong>Rage</strong> sub-type seems like a good answer, as it decreases the tediousness of this kind of pvp - although this doesn’t mean that we won’t see non-rage pvp fly maps in the future...</p>
+              <p>Gamemode-wise, we should also remember that not all modes include fighting. I look forward to what the community could come up with in a certain area specifically: <strong>race</strong> maps with fly enabled. This could get quite entertaining, in my opinion…</p>
+              <p>It is also worth noting that destroy-based gamemodes such as DTM or DTC might not fit particularly well with the fly module. Unless we were to add some TNT based weaponry…</p>
+              <p>And lastly, I would like to express my excitement towards this module. It is rather new, and there’s a lot left to explore. Our community has been growing up in many ways, but it’s not the end of the road just yet…</p>
+            </div>
+            <br>
+            <p>Taken From: <a href="https://oc.tc/forums/topics/5586a57a5f35b9d6880013ff">The Overcast /Report #3, 2015-06-21</a> by <a href="https://oc.tc/stats/OvercastReport">OvercastReport</a>
+          </div>
+        </div>
+        <br>
+      </section>
+    </div>
+    <!-- Content End -->
+    <div class="container">
+      <hr>
+      <footer>
+        <ul class="nav nav-pills">
+          <div class="btn-group">
+            <div class="dropup">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Language Selection <i class="fa fa-caret-up"></i></button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">English</a></li>
+              </ul>
+            </div>
+          </div>
+          <li class="pull-right"><a href="/en/contributing"><i class="fa fa-gear"></i> Contributing</a></li>
+        </ul>
+      </footer>
+    <br>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
